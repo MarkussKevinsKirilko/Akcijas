@@ -1,0 +1,23 @@
+Izmantotās bibliotēkas yfinance un pywhatkit. 
+
+Šis projekts vairāk ir domāts cilvēkiem ,kuri saista savu dienu ar akcijām (Stocks). 
+Šī koda veicamais darbs ir apskatīt tev izvēlētas akcijas ,kuras tiek nolasītas izmantojot biblotēku (yfinance) ,
+lai iegūtu finanšu informāciju par akcijām, šī bibliotēka izmanto Yahoo vietni ,lai izgūtu vēsturisko krājumu datni.  
+Pēc šo akciju nolasīšanas, tas izveido katram akciju simbolam (Ticker) ,objektu ,izmantojot (yfinance) ,
+pēctam iegūst vēsturisko akciju informāciju noteiktajā laika periodā, manā gadijumā tā ir izvēlēta viena diena. 
+Tad tas iegūst atvēršanas cenu un pašreizējo aizēršanas cenu no datiem, šī informācija tiek saglabāta vārdnīcā 
+(stock_info) ,kur akciju simbols ir atslēga. Kā arī iekļauj kļūdu  apstrādi ,lai uztveru jebkādas kļūdas, 
+kuras var rasties, par akciju informāciju. Nākamais koda fragments izveido ziņojumu, iekļaujot akciju cenas un izmaiņas. 
+Iekšējais cikls pārklāj katru akcijas simbolu un to atbilstošās cenas informāciju (stock_info). 
+Katrai akcijai tiek peikļūts, izmantojot (items()) metodi, un tiek iegūtas pēdējas atvēršanas cena 
+(last_open_price) un pašreizējā cena (current_price). Šī informācija tiek izmantota ,lai papildinātu ziņojumu. 
+Tad tiek izmantota (isinstance) funkcija ,lai pārbaudītu ,vai (last_open_price) un (current_price) ir skaitļi 
+(float vai int). Ja abas vērtības ir skaitļi, tad tiek apreiķinātas izmaiņas (price_change) 
+un šī informācija tiek pievienota ziņojumam un ar precīzām decimāldaļām. Ja viena vai abas vērtības nav skaitļi, 
+tad tiek pievienots ziņojums ar neskaitliskiem datiem. Nakamajā koda fragmenta daļā nosūta WhatsApp ziņojumu 
+uz norādīto saņēmēja numuru (target_number), kuru var mainīt pēc vajdzības. Pēc tam tiek izmantota 
+(sendwhatmsg_instantly) funkciju no (pywhatkit) bibliotēkas, lai nosūtītu ziņojumu uz norādīto nummuru. 
+Ziņojums ir iepriekš sagatavots un glabājas mainigajā (message). Opcionāli ir norādīts trešais arguments 
+(manā gadijumā 20), kas apzīmē sekundes un norāda, cik sekundes gaidīt, pirms automātiski nosūtīt ziņojumu. 
+
+Lai šis kods strādātu ,ir vajadzīgs ,jau iepriekš ielogoties WhatsApp kontā no kura vēlaties izsūtīt šo ziņojumu. 
