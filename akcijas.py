@@ -32,7 +32,7 @@ for symbol, prices in stock_info.items():
         message += "{}: Last Open - {}, Current - {}\n".format(symbol, last_open_price, current_price)
 
 # Send a WhatsApp message to the specified contact immediately
-target_number = "+37128666616"  # Aizstāt ar sava adresāta numuru
+target_number = "+37128735628"  # Aizstāt ar sava adresāta numuru
 
 
 # Nekavējoties nosūtiet ziņojumu
